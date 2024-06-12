@@ -122,5 +122,6 @@ if uploaded_file is not None:
         st.write("Solusi yang mungkin dapat membantu:")
         for solution in solutions:
             st.write(solution)
-    except:
+    except Exception as e:
         st.write("[FAILED] Server Gagal mencari solusi")
+        print(f"[FAILED] {e}")
