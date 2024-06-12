@@ -5,11 +5,4 @@ tensorflow
 numpy
 matplotlib
 google
-googlesearch-pythongoogl
-google-api-core
-google-api-python-client
-google-auth
-google-auth-httplib2
-google-pasta
-googleapis-common-protos
 googlesearch-python
