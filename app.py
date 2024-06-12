@@ -1,3 +1,4 @@
+import os
 import cv2
 import streamlit as st
 from PIL import Image
@@ -7,8 +8,8 @@ import time
 import matplotlib.pyplot as plt
 from googlesearch import search
 
-# Load the pre-trained model
-model = tf.keras.models.load_model('./ResNet50_model.h5')
+current_directory = os.path.dirname(os.path.realpath(__file__))
+model = tf.keras.models.load_model(os.path.join(current_directory, 'ResNet50_model.h5'))
 
 def preprocess_image(image):
     image_normalized = image.astype(np.float32) / 255.0
@@ -96,7 +97,6 @@ for col, member in zip(cols, team_members):
 st.markdown("## Upload your image")
 
 uploaded_file = st.file_uploader("Drag & Drop your image here or click to upload", type=["png", "jpg", "jpeg"])
-
 if uploaded_file is not None:
     classes = ['Healthy', 'Powdery','Rust']
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
