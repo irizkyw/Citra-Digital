@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from googlesearch import search
 
 # Load the pre-trained model
-model = tf.keras.models.load_model('ResNet50_model.h5')
+model = tf.keras.models.load_model('./ResNet50_model.h5')
 
 def preprocess_image(image):
     image_normalized = image.astype(np.float32) / 255.0
