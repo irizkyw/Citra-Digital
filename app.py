@@ -9,11 +9,8 @@ import matplotlib.pyplot as plt
 from googlesearch import search
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
-
-st.write("Files in current directory:")
-st.write(os.listdir(current_directory))
-
-# model = tf.keras.models.load_model(os.path.join(current_directory, 'ResNet50_model.h5'))
+model_path = os.path.join(current_directory, 'Resnet50_model.h5')
+model = tf.keras.models.load_model(model_path)
 
 def preprocess_image(image):
     image_normalized = image.astype(np.float32) / 255.0
