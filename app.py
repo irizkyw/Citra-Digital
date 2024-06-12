@@ -30,7 +30,7 @@ def predict_single_image(image_path):
 def search_solution(query):
     search_query = query + " leaf disease solution"
     solutions = []
-    for j in search(search_query, num_result=3, stop=3, pause=2):
+    for j in search(search_query, num=3, stop=3, pause=2):
         solutions.append(j)
         time.sleep(2)
     return solutions
