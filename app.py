@@ -28,7 +28,7 @@ def predict_single_image(image_path):
 def search_solution(query):
     search_query = query + " leaf disease solution"
     solutions = []
-    for j in search(search_query, num_results=3):
+    for j in search(search_query, num=3, stop=3, pause=2):
         solutions.append(j)
         time.sleep(2)
     return solutions
@@ -116,7 +116,10 @@ if uploaded_file is not None:
     st.pyplot(fig)
 
     st.write(f"Jenis penyakit tanaman: {classes[predicted_class]}, Dengan akurasi: {accuracy[0][predicted_class]:.2f}")
-    solutions = search_solution(classes[predicted_class])
-    st.write("Solusi yang mungkin dapat membantu:")
-    for solution in solutions:
-        st.write(solution)
+    try:
+        solutions = search_solution(classes[predicted_class])
+        st.write("Solusi yang mungkin dapat membantu:")
+        for solution in solutions:
+            st.write(solution)
+    except:
+        st.write("[FAILED] Server Gagal mencari solusi")
